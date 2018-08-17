@@ -5,6 +5,12 @@
 # dependencies
 /node_modules
 
+# environments
+src/environments/*
+!src/environments/environment.model.ts
+!src/environments/environment.prod.ts
+!src/environments/index.ts
+
 # IDEs and editors
 /.idea
 .project
