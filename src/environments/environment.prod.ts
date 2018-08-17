@@ -3,6 +3,7 @@ import { Environment } from './environment.model';
 const defaultPort = 4000;
 const environment: Environment = {
   apollo: {
+    endpoint: process.env.APOLLO_ENDPOINT,
     engine: {
       apiKey: process.env.APOLLO_ENGINE_API_KEY
     },

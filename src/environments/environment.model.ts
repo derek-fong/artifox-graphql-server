@@ -1,5 +1,6 @@
 export class Environment {
   apollo: {
+    endpoint: string,
     engine: {
       apiKey: string;
     },
