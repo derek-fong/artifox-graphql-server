@@ -5,13 +5,17 @@
   "private": true,
   "scripts": {
     "build": "rm -rf ./dist && webpack --config webpack.config.js",
-    "commitmsg": "commitlint -E $GIT_PARAMS",
     "postinstall": "npm run build",
     "start": "node ./dist/server"
   },
   "engines": {
     "node": "10.6.0",
     "npm": "6.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
   },
   "dependencies": {
     "apollo-engine": "^1.1.2",
