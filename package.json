@@ -6,7 +6,7 @@
   "scripts": {
     "apollo:schema:publish": "apollo schema:publish --endpoint=$APOLLO_ENDPOINT --key=$APOLLO_ENGINE_API_KEY",
     "apollo:schema:publish:delay": "run-s delay apollo:schema:publish",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.$NODE_ENV.js",
     "delay": "delay ${NPM_SCRIPTS_DELAY_SECONDS:-0}",
     "postinstall": "npm run build",
     "start": "run-p start:server apollo:schema:publish:delay",
@@ -42,6 +42,7 @@
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2"
   }
 }
