@@ -4,10 +4,13 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "apollo:schema:publish": "apollo schema:publish --endpoint=$APOLLO_ENDPOINT --key=$APOLLO_ENGINE_API_KEY",
+    "apollo:schema:publish:delay": "run-s delay apollo:schema:publish",
     "build": "webpack --config webpack.config.js",
+    "delay": "delay ${NPM_SCRIPTS_DELAY_SECONDS:-0}",
     "postinstall": "npm run build",
-    "poststart": "apollo schema:publish --endpoint=$APOLLO_ENDPOINT --key=$APOLLO_ENGINE_API_KEY",
-    "start": "node ./dist/server"
+    "start": "run-p start:server apollo:schema:publish:delay",
+    "start:server": "node ./dist/server"
   },
   "engines": {
     "node": "10.6.0",
@@ -32,7 +35,9 @@
     "@types/webpack-env": "^1.13.6",
     "apollo": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
+    "delay-cli": "^1.1.0",
     "husky": "^1.0.0-rc.13",
+    "npm-run-all": "^4.1.3",
     "ts-loader": "^4.4.2",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
