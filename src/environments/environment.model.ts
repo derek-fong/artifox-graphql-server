@@ -4,7 +4,8 @@ export class Environment {
     engine: {
       apiKey: string;
     },
-    introspection: boolean
+    introspection: boolean,
+    playground: boolean
   };
   name: string;
   port: number;

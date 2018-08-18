@@ -15,7 +15,6 @@ async function bootstrapAsync(expressApp: Express, port: number): Promise<void> 
       module.hot.accept();
       module.hot.dispose(() => engine.stop());
     }
-
   } catch (error) {
     console.error(error);
   }

@@ -7,7 +7,8 @@ const environment: Environment = {
     engine: {
       apiKey: process.env.APOLLO_ENGINE_API_KEY
     },
-    introspection: process.env.APOLLO_INTROSPECTION === 'true'
+    introspection: process.env.APOLLO_INTROSPECTION === 'true',
+    playground: process.env.APOLLO_PLAYGROUND === 'true'
   },
   name: process.env.NODE_ENV,
   port: (process.env.PORT) ? parseInt(process.env.PORT) : defaultPort

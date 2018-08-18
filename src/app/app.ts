@@ -11,6 +11,7 @@ const apolloServer = new ApolloServer({
   resolvers,
   cacheControl: true,
   introspection: environment.apollo.introspection,
+  playground: environment.apollo.playground,
   tracing: true,
   engine: false
 });
