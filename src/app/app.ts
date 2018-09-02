@@ -1,21 +1,16 @@
 import * as express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+import * as expressJwt from 'express-jwt';
+import * as jwksRsa from 'jwks-rsa';
 
-import typeDefs from './schema';
-import resolvers from './resolvers';
-import environment from '../environments';
+import { AuthService } from './auth/auth.service';
 
 const app = express();
-const apolloServer = new ApolloServer({
-  typeDefs,
-  resolvers,
-  cacheControl: true,
-  introspection: environment.apollo.introspection,
-  playground: environment.apollo.playground,
-  tracing: true,
-  engine: false
-});
 
-apolloServer.applyMiddleware({ app });
+app.use(
+  expressJwt({
+    ...AuthService.jwtVerifyOptions,
+    ...{ credentialsRequired: false, secret: jwksRsa.expressJwtSecret(AuthService.jwksRsaOptions) }
+  })
+);
 
 export default app;

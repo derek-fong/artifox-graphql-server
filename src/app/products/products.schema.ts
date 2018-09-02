@@ -27,4 +27,11 @@ export default gql`
     """
     products: [Product]!
   }
+  
+  type Subscription {
+    """
+    Product registered. 
+    """
+    productRegistered: Product
+  }
 `;

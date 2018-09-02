@@ -1,6 +1,7 @@
 import { mergeResolvers } from 'merge-graphql-schemas';
 
 import queriesResolver from './queries';
+import subscriptionsResolver from './subscriptions';
 
 const productsResolver = {
   Product: {
@@ -10,5 +11,6 @@ const productsResolver = {
 
 export default mergeResolvers([
   productsResolver,
-  queriesResolver
+  queriesResolver,
+  subscriptionsResolver
 ]);
